@@ -1,5 +1,7 @@
 # ga-to-delegation
 
+[![npm version](https://badge.fury.io/js/ga-to-delegation.svg)](https://badge.fury.io/js/ga-to-delegation)
+
 Generates a CWL Galaxy delegation workflow from a Galaxy workflow (.ga) file.
 
 ## Installation
