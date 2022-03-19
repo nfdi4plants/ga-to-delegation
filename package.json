@@ -1,0 +1,36 @@
+{
+  "name": "ga-to-delegation",
+  "version": "0.1.0",
+  "description": "Generates a CWL Galaxy delegation workflow from a Galaxy workflow (.ga) file",
+  "author": "Adrian Zimmer",
+  "license": "MIT",
+  "main": "dist/main.js",
+  "preferGlobal": true,
+  "bin": {
+    "ga-to-delegation": "dist/main.js"
+  },
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "start": "node dist/main.js",
+    "build": "rimraf dist/ && tsc && shx cp -r data dist/data",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/command-line-args": "^5.2.0",
+    "@types/command-line-usage": "^5.0.2",
+    "@types/js-yaml": "^4.0.5",
+    "rimraf": "^3.0.2",
+    "shx": "^0.3.4",
+    "ts-node": "^10.4.0",
+    "ts-standard": "^11.0.0",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "command-line-args": "^5.2.0",
+    "command-line-usage": "^6.1.1",
+    "cwl-ts-auto": "^0.1.3",
+    "js-yaml": "^4.1.0"
+  }
+}
