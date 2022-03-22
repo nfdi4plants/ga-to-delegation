@@ -49,7 +49,8 @@ function generatePreprocessingToolSkeleton (): cwlTsAuto.CommandLineTool {
       new cwlTsAuto.InlineJavascriptRequirement({}),
       new cwlTsAuto.ShellCommandRequirement({}),
       // "{...} as any" is a workaround to use the $include statement
-      new cwlTsAuto.DockerRequirement({ dockerImageId: 'cwl-galaxy-parser', dockerFile: { $include: './dockerfiles/cwl-galaxy-parser/Dockerfile' } as any })
+      new cwlTsAuto.DockerRequirement({ dockerImageId: 'cwl-galaxy-parser', dockerFile: { $include: './dockerfiles/cwl-galaxy-parser/Dockerfile' } as any }),
+      new cwlTsAuto.NetworkAccess({ networkAccess: true })
     ],
     inputs: [],
     outputs: []
