@@ -1,6 +1,6 @@
 {
   "name": "ga-to-delegation",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Generates a CWL Galaxy delegation workflow from a Galaxy workflow (.ga) file",
   "author": "Adrian Zimmer",
   "license": "MIT",
