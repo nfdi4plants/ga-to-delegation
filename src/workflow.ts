@@ -21,12 +21,12 @@ function generatePreprocessingStep (preprocessingTool: cwlTsAuto.CommandLineTool
 }
 
 function generatePlanemoStep (planemoTool: cwlTsAuto.CommandLineTool): cwlTsAuto.WorkflowStep {
-  const planemoStep = new cwlTsAuto.WorkflowStep({ id: 'planemo', in_: [], out: [], run: planemoTool })
+  const planemoStep = new cwlTsAuto.WorkflowStep({ id: 'execution', in_: [], out: [], run: planemoTool })
   const workflowInputParams = new cwlTsAuto.WorkflowStepInput({ id: 'workflowInputParams', source: 'preprocessing/paramFile' })
   const inputDataFolder = new cwlTsAuto.WorkflowStepInput({ id: 'inputDataFolder', source: 'preprocessing/inputDataFolder' })
   planemoStep.in_.push(workflowInputParams, inputDataFolder)
 
-  const outDir = 'out_dir'
+  const outDir = 'history'
   planemoStep.out.push(outDir)
   return planemoStep
 }
@@ -39,7 +39,7 @@ function generateRunSkeleton (): cwlTsAuto.Workflow {
     outputs: [],
     steps: []
   })
-  const output = new cwlTsAuto.WorkflowOutputParameter({ type: cwlTsAuto.CWLType.DIRECTORY, id: 'out_dir', outputSource: 'planemo/out_dir' })
+  const output = new cwlTsAuto.WorkflowOutputParameter({ type: cwlTsAuto.CWLType.DIRECTORY, id: 'history', outputSource: 'execution/history' })
   run.outputs.push(output)
   return run
 }

@@ -50,6 +50,7 @@ function main (): void {
     const preprocessingTool = generatePreprocessingTool(gaInputs)
     cwlTsAuto.loadDocument(path.join(__dirname, 'data/tools/planemo-run.cwl')).then((planemoTool) => {
       planemoTool = planemoTool as cwlTsAuto.CommandLineTool
+      planemoTool.requirements?.push(new cwlTsAuto.DockerRequirement({ dockerImageId: 'planemo', dockerFile: { $include: './dockerfiles/planemo-run/Dockerfile' } as any }))
 
       const workflow = generateWorkflow(preprocessingTool, planemoTool, gaInputs)
 
